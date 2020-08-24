@@ -5,6 +5,7 @@ var nation = `india`
 var api = `https://api.openweathermap.org/data/2.5/weather?q=`
 var apiKey =`&appid=ca869b8d4f1a1a9fa1b200e5cef8d33a`;
 var units = `&units=metric`
+var r=255 , g = 50, b=0;
 
 function preload(){
   s1 = loadImage("1.png")
@@ -110,6 +111,9 @@ totalT = report.totalTests;
 drawSprites();
     if(a===1){
      let need = input1.value();
+      textStyle("bold")
+        fill("Red")
+        textSize(20)
       text(need,width/2,height/6)
     }
    
@@ -199,12 +203,42 @@ input1.style(`font-size`,`10px`)
             button.style(`font-size`,`11px`)
      }
        if(a ===3){
-     textStyle("bold");
-    fill("white");
-  textSize(40);
-text(`loading...`,width/2,height/1.5)
-fill("pink")
-textSize(20);
+      input1.position(width / 4, -555);
+        button.position(width / 1.5, -555)
+        textStyle("bold");
+        if (r > 150) {
+            r = r - 1
+        }
+        if (r < 200) {
+            //               r=201
+            g = g + 1
+        }
+        if (g > 255) {
+            b = b + 1
+
+        }
+        if (b > 300) {
+            b = 301
+
+            g = g - 2
+        }
+        if (g < -2) {
+            r++
+            g++
+        }
+
+        //           console.log("r: "+r)
+        //            console.log("g: "+g)
+        //            console.log("b: "+b)
+        rectMode(CENTER)
+        fill(rgb(r, g, b, 80))
+        rect(window.innerWidth / 2, window.innerHeight / 2, width, height)
+
+        textSize(40);
+        fill("fffffff")
+        text(`loading...`, width / 2.1, height / 1.5)
+
+        textSize(20);
    }
 }
  

@@ -127,75 +127,34 @@ drawSprites();
         }
           if(temp>20){
            //  background(h1)
-          }
-//           fill("#663399")
-//             rectMode(CENTER);
-//             rect(width/2,height/9,width,height/4)
-//             noStroke();
-//             rectMode(CORNER)
-//             fill("#ff3b5c")
-//             rect(width/28,height/4,width/2.1,height/2.6)
-//             fill("#ffffff")
-//             rect(width/28,height/1.55,width/1.08,height/3)
-//             fill("#0D98Ba")
-//             rect(width/1.9,height/4,width/2.3,height/5.1)
-//             fill("#ffb825")
-//             rect(width/1.9,height/2.2,width/2.3,height/5.5)
-//             fill("white");
-//             textSize(20)
-//             text("Country: "+country,width/10,height/2.6);
-//             text("Humidity: "+humidity+"%",width/10,height/2.3)
-//             text("Pressure: "+preassure+" Pa",width/10,height/2.08)
-//             text("Feels Like: "+Math.round(feel)+"°C",width/10,height/1.9)
-// //             //covid 19
-//             fill("black")
-//             text("Total Cases",width/2.32,height/1.36)
-//             text("Recoverd: "+recover,width/1.8,height/1.11);
-//             text("Deaths:    "+deaths,width/10,height/1.11)
-//             text("Critical:     "+critical,width/10,height/1.06)
-//             text("Active:    "+active,width/1.8,height/1.17)
-//              text("Country:  "+country1,width/10,height/1.17)
-//             text("Tests:    "+totalT,width/1.8,height/1.06)
-
-
-//             fill("#ffffff")
-//             textSize(30);
-//             textStyle("bold")
-//             text("Coordinates",width/1.8,height/3.2)
-//             text("Wind",width/1.5,height/1.99)
-//             text("Highlights",width/7.5,height/3.2)
-//             fill("#ff3b5c")
-//             text("Covid-19",width/2.5,height/1.43)
-//             fill("#ffffff")
-            
-
-//             textStyle(NORMAL)
-//             textSize(20)
-//             text("°C",width/1.8,height/6.2)
-//             text("Latitude:",width/1.8,height/2.7)
-//             text("Longitude:",width/1.8,height/2.35)
-//             text("Speed:",width/1.8,height/1.8)
-//             text("Direction:",width/1.8,height/1.65)
-//             fill("black")
-            
+          }           
             fill("#ffffff")
             
-//             textSize(30)
-//             textStyle("normal")
-//             text(name,width/2.5,height/11)
-            textSize(100);
-            textFont(`Agency FB`)
-            text(Math.round(temp),width/2.35,height/5.5)
-//             stroke("#ff3b5c");
-//             noFill();
-//             text(Math.round(cases),width/2.8,height/1.24)
-//             fill("#ffffff")
-// noStroke();
-//             textSize(20)
-//             text(Math.round(lat),width/1.15,height/2.7)
-//             text(Math.round(lon),width/1.15,height/2.35)
-//             text(Math.round(windSpeed)+` Kph`,width/1.2,height/1.8)
-//             text(Math.round(windD)+`°`,width/1.2,height/1.65)
+             textSize(100)
+             textStyle("normal")
+                       text("°",width/1.3,height/3.3)
+             textSize(10)
+ text("lat: "+Math.round(lat)+"  lon: "+Math.round(lon),width/12,height/2.15)
+//             text(,width/12,height/2.05)
+                       textSize(20)
+
+             text(name+", "+country,width/11,height/11)
+            textSize(150);
+            textFont(`Mangal`)
+////          for(var i =0; i++ ; i=temp){
+//              console.log(i)
+//          }
+            text(Math.round(temp),width/5,height/2.8)
+
+             textSize(20)
+          textStyle("bold")
+            
+                       text(humidity+"%",width/7,height/1.4)
+
+             text(Math.round(windSpeed)+`K/PH`,width/1.9,height/1.26)
+             text(Math.round(windD)+`°`,width/1.9,height/1.085)
+                       text(+preassure+"Pa",width/10,height/1.08)
+
         
 //             input1.position(width/1.65,height/30)
 // input1.style(`font-size`,`10px`)

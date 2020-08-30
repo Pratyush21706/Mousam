@@ -8,6 +8,7 @@ var units = `&units=metric`
 var hr,mn,sc,day,month,year;
 var r=255 , g = 50, b=0;
 var icon,iconImg;
+var corona = 1;
 // var y=2020, montho=1||2||3||4;
 
 function preload(){
@@ -23,7 +24,7 @@ var col = color(25, 23, 200, 1);
   input1.position(width/4,height/1.09);
   input1.style(`font-size`,`17px`)
     input1.style(`border`,`100px`)
-    input1.style(`background-color`,"#FDEDE4")
+    input1.style(`background-color`,"#87CEEB")
 
   input2 = createInput(`India`).attribute(`placeholder`,`Enter Your Location`);
   input2.position(width/2.64,-555);
@@ -33,7 +34,7 @@ var col = color(25, 23, 200, 1);
   button1.position(width/1.756,-555)
   button1.mousePressed(change);
   button1.style(`font-size`,`20px`)
-        button1.style(`background-color`,`#EF5600`)
+        button1.style(`background-color`,`#87CEEB`)
         button1.style(`border`,`0px`)
 
  button = createButton(`🔍`)
@@ -43,12 +44,24 @@ var col = color(25, 23, 200, 1);
         button.style(`background-color`,col)
         button.style(`border`,`0px`)
 
-
+    
+ button3 = createButton(`Covid19 Updates`)
+  button3.position(width/1.756,-555)
+  button3.mousePressed(changer);
+  button3.style(`font-size`,`20px`)
+        button3.style(`background-color`,`#87CEEB`)
+        button3.style(`border`,`0px`)
  
+    button4 = createButton(`Weather Updates`)
+  button4.position(width/1.756,-555)
+  button4.mousePressed(retriver);
+  button4.style(`font-size`,`20px`)
+        button4.style(`background-color`,`#87CEEB`)
+        button4.style(`border`,`0px`)
 
 
-//  covidUrl = link+nation;
-//  loadJSON(covidUrl, gotCorona);
+  covidUrl = link+nation;
+  loadJSON(covidUrl, gotCorona);
 
 
   }
@@ -61,6 +74,12 @@ var col = color(25, 23, 200, 1);
             input1.position(20,-555)
 
   }
+function retriver(){
+    corona = 1
+}
+function changer(){
+    corona = 2;
+}
 
   function gotData(data){
   coming = data
@@ -72,6 +91,7 @@ var col = color(25, 23, 200, 1);
   function change(){
     input1.position(width/2,10);
     button.position(width/1.1,8)
+      corona = 1;
 //      button1.position(width/1.1,-555)
 
 
@@ -89,6 +109,8 @@ var col = color(25, 23, 200, 1);
   function draw(){
     background(s1)
 //     console.log(montho);
+       
+
        if(keyDown("Space")){
         weatherAsk();
       }
@@ -194,6 +216,12 @@ active = report.active;
 critical = report.critical;
 totalT = report.totalTests;
        }
+      if(a===2){
+      if(report){
+            button3.position(3,6)
+          console.log("got th edt")
+      }          
+      }
 
 drawSprites();
    if(a===1){
@@ -206,6 +234,7 @@ drawSprites();
   
      if(a===2){
        background(sunny)
+                
    button1.position(width/1.1,8)
 
        if(temp<20){
@@ -239,7 +268,7 @@ textStyle("bold")
 //          console.log(description)
 //                       console.log(country)
            textFont(`Alegreya Sans`)
-
+if(corona===1){
            text(name+" "+country ,width/2.18,height/5)
             text(des, width/2.18 , height/3.8)
            textSize(100);
@@ -249,6 +278,7 @@ textStyle("bold")
 //          }
 textStyle("normal")
            text(Math.round(temp)+"°",width/11,height/3.8)
+}button3
 textFont("Mangal")
             textSize(40)
 //           textStyle("bold")
@@ -323,8 +353,13 @@ textStyle("normal")
 textSize(22)
 
 fill("black")
+         if(corona===1){
             text(Math.round(feel)+`°`,width/2.4,height/2.95)
             text("Time: "+hr+":"+mn,width/1.85,height/2.95)
+             button4.position(3,-555)
+//                         input1.position(20,-555)
+
+         }
 fill("white")
                               text(+preassure+"hPa",width/1.4,height/1.53)
                               textSize(32)
@@ -333,6 +368,42 @@ text(Math.round(temp2)+"°",width/2.15,height/1.115)
 text(Math.round(temp3)+"°",width/1.65,height/1.115)
 text(Math.round(temp4)+"°",width/1.35,height/1.115)
 text(Math.round(temp5)+"°",width/1.14,height/1.115)
+         console.log(corona)
+if(corona===2){
+ noStroke();
+                button4.position(3,6)
+  button1.position(width/1.756,-555)
+
+ fill("#FDEDE4")
+    rect(0,0,width,height/2.7)
+    textSize(30)
+    fill("Black")
+    textStyle("bold")
+    text("Covid 19",width/2.7,height/11)
+    textSize(25)
+        text("Total Cases ",width/2.8,height/7)
+        noFill();
+        stroke("red")
+        textSize(50)
+text(cases,width/3.3,height/4.6)
+ fill("Black")
+  noStroke();
+  textSize(25)
+  textStyle("normal")
+text("Recoverd: "+recover, width/25, height/3)
+text("Active:    "+ active, width/25, height/3.6)
+text("Critical:    "+ critical, width/25, height/2.6)
+text("Country: "+country1,width/1.8, height/3.6)
+text("Total Tests ",width/1.75, height/3)
+text(totalT,width/1.7, height/2.6)
+}
+//         country1 = report.country;
+//cases = report.cases;
+//recover = report.recovered;
+//deaths = report.deaths;
+//active = report.active;
+//critical = report.critical;
+//totalT = report.totalTests;
 
 //             input1.position(width/1.65,height/30)
 // input1.style(`font-size`,`10px`)
@@ -364,3 +435,4 @@ text(Math.round(temp5)+"°",width/1.14,height/1.115)
        textSize(20);
   }
   }
+ 
